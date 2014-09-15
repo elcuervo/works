@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+code=$(curl --silent -G "http://isitup.org/${1}.txt" | awk -F", " '{print $3}')
+[[ $code == "1" ]] && echo "YES" || (echo "NO" && exit 1)
